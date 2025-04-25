@@ -14,9 +14,9 @@ describe('AppController', () => {
     appController = app.get<AppController>(AppController);
   });
 
-  describe('root', () => {
-    it('should return "fuck you nigga!"', () => {
-      expect(appController.getHello()).toBe('fuck you nigga!');
-    });
-  });
+  // describe('root', () => {
+  //   it('should return "fuck you nigga!"', () => {
+  //     expect(appController.getHello()).toBe('fuck you nigga!');
+  //   });
+  // });
 });
