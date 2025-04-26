@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { createPublicClient, http,  Address } from 'viem'
 import { sepolia } from 'viem/chains'
-import tokenJson from './assets/MyToken.json'
+import * as tokenJson from './assets/MyToken.json';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
 
 
-const PRIVATEAPIKEY = process.env.INFURA_API_KEY || 'NO RESPONSE';
+const PRIVATEAPIKEY = process.env.ALCHEMY_API_KEY || 'NO RESPONSE';
 const deployerprivatekey = process.env. PRIVATE_KEY || '';
 
 
@@ -24,7 +24,7 @@ export class AppService {
   async getTokenName(): Promise<string> {
     const publicClient = createPublicClient({
       chain: sepolia,
-      transport: http(`https://sepolia.infura.io/v3/${PRIVATEAPIKEY}`),
+      transport: http(`https://eth-sepolia.g.alchemy.com/v2/${PRIVATEAPIKEY}`),
     });
     const name = await publicClient.readContract({
       address: this.getContractAddress() as Address,
